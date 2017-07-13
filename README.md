@@ -4,6 +4,8 @@ This is a [stage 0 proposal](https://tc39.github.io/process-document/) to add a 
 
 # Motivation
 
+There is nothing particularly radical about this proposal. Its goal is to provide a simplified syntax for the common case of methods/fields that evaluate/return to a simple/trivial single-expression.
+
 ```javascript
 class Rectangle {
   constructor(width, height) {
@@ -38,6 +40,21 @@ console.log(shape.toString()); // Rectangle: area=8, perimeter=12
 ```
 
 # Examples
+
+React
+
+```javascript
+class HelloMessage extends React.Component {
+  render() => <div>Hello {this.props.name}</div>;
+
+  // As opposed to:
+  // render() {
+  //   return <div>Hello {this.props.name}</div>;
+  // }
+}
+```
+
+Data objects
 
 ```javascript
 class Person {
